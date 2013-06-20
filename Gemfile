@@ -20,6 +20,7 @@ gem 'recipient_interceptor'
 gem 'simple_form'
 gem 'strong_parameters'
 gem 'unicorn'
+gem 'cancan'
 
 group :assets do
   gem 'coffee-rails'

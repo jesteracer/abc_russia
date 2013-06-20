@@ -1,4 +1,5 @@
 class PeopleController < InheritedResources::Base
+  load_and_authorize_resource
   helper_method :person, :people
 
 protected

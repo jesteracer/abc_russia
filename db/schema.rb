@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130619194342) do
+ActiveRecord::Schema.define(:version => 20130620105720) do
+
+  create_table "curations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "person_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "curations", ["person_id"], :name => "index_curations_on_person_id"
+  add_index "curations", ["user_id"], :name => "index_curations_on_user_id"
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0, :null => false
@@ -41,12 +51,14 @@ ActiveRecord::Schema.define(:version => 20130619194342) do
   end
 
   create_table "users", :force => true do |t|
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
-    t.string   "email",                             :null => false
-    t.string   "encrypted_password", :limit => 128, :null => false
+    t.datetime "created_at",                                           :null => false
+    t.datetime "updated_at",                                           :null => false
+    t.string   "email",                                                :null => false
+    t.string   "encrypted_password", :limit => 128,                    :null => false
     t.string   "confirmation_token", :limit => 128
-    t.string   "remember_token",     :limit => 128, :null => false
+    t.string   "remember_token",     :limit => 128,                    :null => false
+    t.boolean  "admin",                             :default => false
+    t.boolean  "curator",                           :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
