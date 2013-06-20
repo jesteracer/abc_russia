@@ -35,7 +35,7 @@ Prz::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  config.action_controller.action_on_unpermitted_parameters = :raise
+  config.action_controller.action_on_unpermitted_parameters = :log
 
   config.action_mailer.default_url_option = { host: 'prz.local' }
 end

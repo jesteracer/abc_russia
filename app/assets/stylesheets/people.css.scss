@@ -1,0 +1,49 @@
+@mixin input{
+  width: 350px;
+  border: 1px solid #cccccc;
+  border-radius: 2px;
+  padding: 5px;
+}
+@mixin size{
+  font-size: $font_size;
+  line-height: 20px;
+}
+
+form.new_person, form.edit_person{
+  $input_width: 250px;
+  border: 1px solid #ddd;
+  .input{
+    padding: 10px;
+    clear: both;
+  }
+  label{
+    @include size;
+    text-align: right;
+    line-height: 20px;
+    padding-top: 9px;
+    padding-right: 10px;
+    display: block;
+    width: 200px;
+    float: left;
+  }
+  select{
+    margin: .5em;
+    @include size;
+  }
+  input[type="text"]{
+    @include input;
+    @include size;
+  }
+  textarea{
+    @include input;
+    @include size;
+    height: 140px;
+  }
+  textarea.smaller{
+    height: 50px;
+  }
+  input[type="submit"]{
+    margin-left: 220px;
+    @include button;
+  }
+}

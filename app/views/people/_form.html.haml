@@ -1,0 +1,9 @@
+= simple_form_for person do |f|
+  = f.input :fio
+  /= f.input :birth_date
+  = f.input :about
+  = f.input :accounts
+  = f.input :accused_for, input_html: {class: :smaller}
+  = f.input :contacts
+
+  = f.submit

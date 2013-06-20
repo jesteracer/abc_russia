@@ -1,0 +1,4 @@
+%h1 Вот список людей
+= link_to "Добавить заключенного", new_person_path
+- people.each do |person|
+  = render person

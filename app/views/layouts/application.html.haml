@@ -3,19 +3,17 @@
   %head
     %meta{:charset => "utf-8"}/
     %meta{:content => "NOODP", :name => "ROBOTS"}/
-    %title= page_title
+    %title
+      = page_title
     = stylesheet_link_tag :application, :media => 'all'
     = csrf_meta_tags
   %body{:class => body_class}
-    %div{:id => "#site_header"}
+    %div#site_header
       - if signed_in?
-        Signed in as: #{current_user.email}
-        \#{link_to 'Sign out', sign_out_path, :method => :delete}
+        = current_user.email
+        = link_to 'Sign out', sign_out_path, :method => :delete
       - else
         = link_to 'Sign in', sign_in_path
-      #flash
-        - flash.each do |key, value|
-          %div{:class => "flash #{key}"}= value
     = render 'flashes'
     = yield
     = render 'javascript'
