@@ -1,7 +1,9 @@
 %hr
 %h2
   = link_to person.fio, person
-  = link_to "edit", edit_person_path(person)
-  = link_to "x", person, method: :delete
+  - if can? :update, person
+    = link_to "edit", edit_person_path(person)
+  - if can? :destroy, person
+    = link_to "x", person, method: :delete
 %p
   = person.about

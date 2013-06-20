@@ -1,0 +1,4 @@
+%h1 Кураторы
+- collection.each do |curation|
+  = link_to "удалить", [parent, curation], method: :delete
+  = curation.user.email

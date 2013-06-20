@@ -2,3 +2,12 @@
   = person.fio
 %article
   = person.about
+
+- if person.curations.any?
+  %article.curators
+    %h1 Кураторы
+    - person.curations.each do |curation|
+      = curation.user.email
+
+- if can? :create, [Curation]
+  = link_to "Добавить куратора", new_person_curation_path(person)
