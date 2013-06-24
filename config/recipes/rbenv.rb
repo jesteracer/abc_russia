@@ -17,7 +17,8 @@ BASHRC
     run "mv ~/.bashrc.tmp ~/.bashrc"
     run %q{export PATH="$HOME/.rbenv/bin:$PATH"}
     run %q{eval "$(rbenv init -)"}
-    run "rbenv #{rbenv_bootstrap}"
+    # run "rbenv #{rbenv_bootstrap}"
+    run "#{sudo} apt-get -y install build-essential tklib zlib1g-dev libssl-dev libreadline-gplv2-dev libxml2 libxml2-dev libxslt1-dev"
     run "rbenv install #{ruby_version}"
     run "rbenv global #{ruby_version}"
     run "gem install bundler --no-ri --no-rdoc"
