@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails-i18n'
+gem 'redcarpet'
 gem 'airbrake'
 gem 'clearance', '1.0.0.rc7'
 gem 'bourbon'
@@ -12,7 +13,7 @@ gem 'font-awesome-rails'
 # Gemfile
 gem 'rabl'
 # Also add either `oj` or `yajl-ruby` as the JSON parser
-gem 'oj '
+# gem 'oj '
 gem 'remotipart', '~> 1.0'
 gem 'paperclip', '~> 3.0'
 gem 'inherited_resources', github: 'josevalim/inherited_resources'

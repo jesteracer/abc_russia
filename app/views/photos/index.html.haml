@@ -1,2 +1,24 @@
-- collection.each do |photo|
-  = image_tag photo.attachment.url(:thumb)
+= content_for :second_header do
+  %h1
+    Фотографии
+    \/
+    = parent.fio
+= content_for :second_navigation do
+  %ul
+    %li
+      = link_to parent do
+        Назад
+        %i.icon-long-arrow-right
+
+= simple_form_for [parent, parent.photos.build] do |f|
+  = f.input :attachment, label: false
+  = f.submit "Добавить фотографию"
+.photo_index
+  - collection.each do |photo|
+    = div_for photo, class: (photo.main? ? :main : :default) do
+      = image_tag photo.attachment.url(:thumb)
+      .controls
+        = link_to person_photo_path(parent, photo, "photo[main]" => true), method: :put do
+          %i.icon-star
+        = link_to person_photo_path(parent, photo), method: :delete do
+          %i.icon-trash

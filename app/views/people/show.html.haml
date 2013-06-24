@@ -2,7 +2,17 @@
 = content_for :second_header do
   %h1
     = person.fio
-
+= content_for :second_navigation do
+  %ul
+    - if can? :edit, person
+      %li
+        = link_to edit_person_path(person) do
+          %i.icon-edit-sign
+          Редактировать
+      %li
+        = link_to person_photos_path(person) do
+          %i.icon-picture
+          Фотографии
 
 .person
   .photos
@@ -14,26 +24,24 @@
       .thumbs
         - person.photos.thumbs.each do |photo|
           = image_tag photo.attachment.url(:thumb)
-    %hr
-    - if can? :edit, person
-      = simple_form_for [person, person.photos.build], remote: true, html: {data: {type: :json}} do |f|
-        .button
-          %i.icon-picture
-          Добавить фотографию
-        .hidden
-          = f.file_field :attachment
-          = f.submit
 
   .about
-    = person.about
-  .accounts
-    = person.accounts
+    .accused_for.notice
+      = markdown! person.accused_for
+    = markdown! person.about
+  .right_column
+    .accounts
+      %h1 Как помочь
+      = markdown! person.accounts
+    .contacts
+      %h1 Связаться
+      = markdown! person.contacts
 
-- if person.curations.any?
-  %article.curators
-    %h1 Кураторы
-    - person.curations.each do |curation|
-      = curation.user.email
+    - if person.curations.any?
+      .curators
+        %h1 Кураторы
+        - person.curations.each do |curation|
+          = curation.user.email
 
 - if can? :create, [Curation]
   = link_to "Добавить куратора", new_person_curation_path(person)

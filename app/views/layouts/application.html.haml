@@ -6,14 +6,30 @@
     %title
       = page_title
     = stylesheet_link_tag :application, :media => 'all'
+    %link{:href => "http://fonts.googleapis.com/css?family=Roboto+Slab:400,700&subset=latin,cyrillic-ext", :rel => "stylesheet", :type => "text/css"}/
     = csrf_meta_tags
   %body{:class => body_class}
     %div#site_header
-      - if signed_in?
-        = current_user.email
-        = link_to 'Sign out', sign_out_path, :method => :delete
-      - else
-        = link_to 'Sign in', sign_in_path
+      .left
+        %ul
+          %li= link_to "Новости", root_url
+          %li= link_to "Контакты", root_url
+          %li= link_to "О нас", root_url
+      .center
+        = link_to root_url do
+          = image_tag "logo.jpg"
+      .right
+        %ul
+          - if signed_in?
+            %li
+              = current_user.email
+              = link_to "Выход", sign_out_path, :method => :delete
+          - else
+            %li
+              = link_to "Зарегистрироваться", sign_up_path
+              или
+              = link_to "Войти", sign_in_path
+
     - if content_for? :second_header
       .second_header
         .wrapper

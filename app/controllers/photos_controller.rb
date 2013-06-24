@@ -4,8 +4,15 @@ class PhotosController < InheritedResources::Base
   load_and_authorize_resource through: :person
   belongs_to :person
 
+  def create
+    create!{collection_url}
+  end
+  def update
+    update!{collection_url}
+  end
+
 protected
   def permitted_params
-    params.permit(:photo => [:attachment])
+    params.permit(:photo => [:attachment, :main])
   end
 end
