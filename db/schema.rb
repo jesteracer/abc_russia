@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130624032750) do
+ActiveRecord::Schema.define(:version => 20130624184508) do
 
   create_table "curations", :force => true do |t|
     t.integer  "user_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130624032750) do
     t.date     "imprisoned_date"
     t.date     "release_date"
     t.string   "address"
+    t.string   "status"
   end
 
   create_table "photos", :force => true do |t|

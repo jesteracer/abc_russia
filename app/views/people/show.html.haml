@@ -2,6 +2,8 @@
 = content_for :second_header do
   %h1
     = person.fio
+    %small
+      = person.status
 = content_for :second_navigation do
   %ul
     - if can? :edit, person
