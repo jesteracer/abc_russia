@@ -11,7 +11,7 @@ load "config/recipes/check"
 server "82.196.12.46", :web, :app, :db, primary: true
 
 set :user, "deployer"
-set :application, "abc-russia"
+set :application, "abc_russia"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
