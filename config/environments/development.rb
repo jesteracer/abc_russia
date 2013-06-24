@@ -37,5 +37,5 @@ Prz::Application.configure do
 
   config.action_controller.action_on_unpermitted_parameters = :log
 
-  config.action_mailer.default_url_option = { host: 'prz.local' }
+  config.action_mailer.default_url_options = { host: 'prz.local' }
 end
