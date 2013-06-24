@@ -1,1 +1,14 @@
+= content_for :second_header do
+  %h1 Изменить информацию по заключенному
+
+= content_for :second_navigation do
+  %ul
+    %li
+      = link_to person_curations_path(person) do
+        %i.icon-user
+        Кураторы
+    %li
+      = link_to :back do
+        Назад
+        %i.icon-long-arrow-right
 = render "form"

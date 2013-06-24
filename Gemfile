@@ -2,10 +2,19 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
+gem 'rails-i18n'
 gem 'airbrake'
 gem 'clearance', '1.0.0.rc7'
 gem 'bourbon'
+gem 'neat'
+gem 'font-awesome-rails'
 #gem 'inherited_resources'
+# Gemfile
+gem 'rabl'
+# Also add either `oj` or `yajl-ruby` as the JSON parser
+gem 'oj '
+gem 'remotipart', '~> 1.0'
+gem 'paperclip', '~> 3.0'
 gem 'inherited_resources', github: 'josevalim/inherited_resources'
 gem 'haml-rails'
 gem 'high_voltage'

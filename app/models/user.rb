@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
     update_attribute("curator", false)
     curations.destroy_all
   end
+
+  def admin!
+    update_attribute("admin", true)
+  end
 end

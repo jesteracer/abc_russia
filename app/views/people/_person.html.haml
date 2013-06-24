@@ -1,4 +1,6 @@
 %hr
+- if person.photos.any?
+  = image_tag person.photos.first.attachment(:thumb)
 %h2
   = link_to person.fio, person
   - if can? :update, person

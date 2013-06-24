@@ -1,0 +1,15 @@
+ru:
+  activerecord:
+    models:
+      person: Заключенный
+    attributes:
+      person:
+        about: О человеке
+        accounts: Счета/способы помочь
+        accused_for: Обвинен в(статьи)
+        birth_date: Дата рождения
+        imprisoned_date: Дата заключения
+        release_date: Дата освобождения
+        address: Адрес места заключения
+        contacts: Как связаться c заключенным
+        fio: Фио

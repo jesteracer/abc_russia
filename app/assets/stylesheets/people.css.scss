@@ -1,34 +1,116 @@
 @mixin input{
-  width: 350px;
+  width: 100%;
   border: 1px solid #cccccc;
   border-radius: 2px;
   padding: 5px;
 }
 @mixin size{
-  font-size: $font_size;
+  font-size: 14px;
   line-height: 20px;
 }
 
+.person{
+  @include outer-container;
+  .photos{
+    @include span-columns(3);
+    .thumbs{
+      @include outer-container;
+      img{
+        @include span-columns(3);
+        @include omega(4n);
+      }
+    }
+  }
+  .about{
+    @include span-columns(5);
+    font-size: 14px;
+  }
+  .accounts{
+    padding: 15px;
+    border: 1px solid #fc511d;
+    @include span-columns(4);
+  }
+
+
+}
+#person_photos{
+
+  img.main{width: 100%;}
+  img{
+    border: 1px solid #ddd;
+  }
+}
+form.new_photo{
+
+  .button{
+    // overflow: hidden;
+    width: 195px;
+    padding: 5px;
+    height: 28px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    background-color: #569e3d;
+    background-image: -moz-linear-gradient(#79d858, #569e3d);
+    background-image: -webkit-linear-gradient(#79d858, #569e3d);
+    background-image: linear-gradient(#79d858, #569e3d);
+    background-repeat: repeat-x;
+    border-color: #4a993e;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+    input {
+      opacity:0;
+    }
+  }
+}
 form.new_person, form.edit_person{
-  $input_width: 250px;
-  border: 1px solid #ddd;
+  // border: 1px solid #eee;
+  .fields{
+    @include outer-container;
+    .about{
+      @include span-columns(6);
+      padding: 2px;
+    }
+    .prison_data{
+      border: 3px solid #c00;
+      @include span-columns(6);
+      background: rgba(0,0,0,0.04);
+    }
+  }
+  .controls{
+    @include outer-container;
+    border-top: 1px solid #ddd;
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(0,0,0,0.04);
+    border-radius: 0 0 5px 5px;
+  }
   .input{
     padding: 10px;
     clear: both;
   }
+  .input.date{
+    label{
+      padding-top: 2px;
+      text-align: right;
+      display: block;
+      float: left;
+      width: 150px;
+    }
+    select{
+
+    }
+  }
   label{
     @include size;
-    text-align: right;
+    // color: rgb(17, 61, 89);
+    color: rgb(68, 68, 68);
+    font-weight: bold;
     line-height: 20px;
     padding-top: 9px;
     padding-right: 10px;
     display: block;
-    width: 200px;
-    float: left;
-  }
-  select{
-    margin: .5em;
-    @include size;
   }
   input[type="text"]{
     @include input;
@@ -37,13 +119,15 @@ form.new_person, form.edit_person{
   textarea{
     @include input;
     @include size;
-    height: 140px;
+    height: 180px;
   }
   textarea.smaller{
     height: 50px;
   }
+  textarea.bigger{
+    height: 400px;
+  }
   input[type="submit"]{
-    margin-left: 220px;
     @include button;
   }
 }

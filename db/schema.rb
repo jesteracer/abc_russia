@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130620105720) do
+ActiveRecord::Schema.define(:version => 20130624032750) do
 
   create_table "curations", :force => true do |t|
     t.integer  "user_id"
@@ -46,9 +46,25 @@ ActiveRecord::Schema.define(:version => 20130620105720) do
     t.text     "accused_for"
     t.text     "contacts"
     t.text     "accounts"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.date     "imprisoned_date"
+    t.date     "release_date"
+    t.string   "address"
   end
+
+  create_table "photos", :force => true do |t|
+    t.integer  "person_id"
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.boolean  "main",                    :default => false
+  end
+
+  add_index "photos", ["person_id"], :name => "index_photos_on_person_id"
 
   create_table "users", :force => true do |t|
     t.datetime "created_at",                                           :null => false

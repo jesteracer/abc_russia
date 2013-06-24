@@ -3,3 +3,54 @@ body{
   font-size: $font_size;
 
 }
+
+.hidden{
+  display: none;
+}
+a{
+  color: #29abe2;
+  text-decoration: none;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+  -o-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+  &:hover{
+    color: #c1272d;
+    text-shadow: rgb(255, 255, 255) 0px 1px 0px;
+  }
+}
+.second_header{
+  border-bottom: 1px solid #ddd;
+  border-color: rgb(238, 238, 238);
+  .wrapper{
+    @include outer-container;
+    .heading{
+      @include span-columns(7);
+      h1{
+        line-height: 20px;
+        font-weight: 300;
+        color: #666;
+      }
+    }
+    .navigation{
+      @include span-columns(5);
+      ul{
+        float: right;
+        margin-top: 25px;
+        list-style-type: none;
+        li{
+          display: block;
+          float: left;
+          margin-left: 15px;
+
+        }
+      }
+    }
+  }
+}
+.site_wrapper{
+  @include outer-container;
+  border: 1px solid #ddd;
+  border-top: 0px;
+  padding: 15px;
+}

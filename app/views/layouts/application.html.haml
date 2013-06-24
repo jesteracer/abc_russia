@@ -14,6 +14,14 @@
         = link_to 'Sign out', sign_out_path, :method => :delete
       - else
         = link_to 'Sign in', sign_in_path
-    = render 'flashes'
-    = yield
-    = render 'javascript'
+    - if content_for? :second_header
+      .second_header
+        .wrapper
+          .heading
+            = content_for :second_header
+          .navigation
+            = content_for :second_navigation
+    .site_wrapper
+      = render 'flashes'
+      = yield
+      = render 'javascript'

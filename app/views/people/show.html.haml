@@ -1,7 +1,33 @@
-%h1
-  = person.fio
-%article
-  = person.about
+
+= content_for :second_header do
+  %h1
+    = person.fio
+
+
+.person
+  .photos
+    %section#person_photos
+      - person.photos.each do |photo|
+        - if photo.persisted?
+          - if photo.main?
+            = image_tag photo.attachment.url(:medium), class: :main
+      .thumbs
+        - person.photos.thumbs.each do |photo|
+          = image_tag photo.attachment.url(:thumb)
+    %hr
+    - if can? :edit, person
+      = simple_form_for [person, person.photos.build], remote: true, html: {data: {type: :json}} do |f|
+        .button
+          %i.icon-picture
+          Добавить фотографию
+        .hidden
+          = f.file_field :attachment
+          = f.submit
+
+  .about
+    = person.about
+  .accounts
+    = person.accounts
 
 - if person.curations.any?
   %article.curators
