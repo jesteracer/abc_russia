@@ -63,3 +63,9 @@ end
 group :staging, :production do
   gem 'newrelic_rpm'
 end
+
+# Use unicorn as the app server
+gem 'unicorn'
+
+# Deploy with Capistrano
+gem 'capistrano'

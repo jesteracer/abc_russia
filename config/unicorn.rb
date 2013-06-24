@@ -1,26 +1,9 @@
-# https://devcenter.heroku.com/articles/rails-unicorn
+root = "/home/deployer/apps/blog/current"
+working_directory root
+pid "#{root}/tmp/pids/unicorn.pid"
+stderr_path "#{root}/log/unicorn.log"
+stdout_path "#{root}/log/unicorn.log"
 
-worker_processes (ENV['WEB_CONCURRENCY'] || 3).to_i
-timeout (ENV['WEB_TIMEOUT'] || 5).to_i
-preload_app true
-
-before_fork do |server, worker|
-  Signal.trap 'TERM' do
-    puts 'Unicorn master intercepting TERM and sending myself QUIT instead'
-    Process.kill 'QUIT', Process.pid
-  end
-
-  if defined? ActiveRecord::Base
-    ActiveRecord::Base.connection.disconnect!
-  end
-end
-
-after_fork do |server, worker|
-  Signal.trap 'TERM' do
-    puts 'Unicorn worker intercepting TERM and doing nothing. Wait for master to sent QUIT'
-  end
-
-  if defined? ActiveRecord::Base
-    ActiveRecord::Base.establish_connection
-  end
-end
+listen "/tmp/unicorn.blog.sock"
+worker_processes 2
+timeout 30
