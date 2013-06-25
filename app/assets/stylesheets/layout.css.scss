@@ -29,9 +29,9 @@ a{
   .wrapper{
     @include outer-container;
     .heading{
-      @include span-columns(8);
+      @include span-columns(7);
       h1{
-        font-size: 30px;
+        font-size: 25px;
         line-height: 20px;
         // font-weight: 300;
         color: #c1272d;
@@ -41,10 +41,10 @@ a{
       }
     }
     .navigation{
-      @include span-columns(4);
+      @include span-columns(5);
       ul{
         float: right;
-        margin-top: 25px;
+        margin-top: 20px;
         list-style-type: none;
         li{
           display: block;
