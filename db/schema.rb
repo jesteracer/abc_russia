@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130624184508) do
+ActiveRecord::Schema.define(:version => 20130625093822) do
 
   create_table "curations", :force => true do |t|
     t.integer  "user_id"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20130624184508) do
     t.date     "release_date"
     t.string   "address"
     t.string   "status"
+    t.decimal  "current_account"
   end
 
   create_table "photos", :force => true do |t|
@@ -66,6 +67,17 @@ ActiveRecord::Schema.define(:version => 20130624184508) do
   end
 
   add_index "photos", ["person_id"], :name => "index_photos_on_person_id"
+
+  create_table "transactions", :force => true do |t|
+    t.integer  "person_id"
+    t.decimal  "amount"
+    t.string   "direction"
+    t.text     "about"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "transactions", ["person_id"], :name => "index_transactions_on_person_id"
 
   create_table "users", :force => true do |t|
     t.datetime "created_at",                                           :null => false

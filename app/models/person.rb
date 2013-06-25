@@ -3,6 +3,7 @@ class Person < ActiveRecord::Base
   # attr_accessible :about, :accounts, :accused_for, :birth_date, :contacts, :fio
   has_many :curations
   has_many :photos
+  has_many :transactions
 
   def curator?(user)
     curations.pluck(:user_id).include?(user.id)

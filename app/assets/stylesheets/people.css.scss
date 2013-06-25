@@ -13,6 +13,10 @@
   @include outer-container;
   .photos{
     @include span-columns(3);
+    h1,h2,h3{
+      margin: 0;
+      padding: 0;
+    }
     .thumbs{
       @include outer-container;
       img{
@@ -23,7 +27,7 @@
   }
   .about{
     @include span-columns(5);
-    font-size: 14px;
+    font-size: 13px;
     .notice{
       display: block;
       padding: 10px;
@@ -57,8 +61,42 @@
     padding: 15px;
     border: 1px solid #eee;
   }
+  .transactions{
+    background: #F5F5F5;
+    margin-top: 10px;
+    padding: 15px;
+    border: 1px solid #eee;
+  }
 
 
+}
+.transaction{
+  clear: both;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 13px;
+  .amount{
+    float: left;
+    .time_ago{
+      color: #444;
+    }
+  }
+  .controls{
+    float: right;
+  }
+  .about_transaction{
+    clear: both;
+  }
+  &.in{
+    background-color: #DFF0D8;
+    border-color: #D6E9C6;
+    color: #468847;
+  }
+  &.out{
+    background-color: #F2DEDE;
+    border-color: #EED3D7;
+    color: #B94A48;
+  }
 }
 #person_photos{
 
@@ -178,5 +216,26 @@ form.new_person, form.edit_person{
   }
   input[type="submit"]{
     @include button;
+  }
+}
+
+
+form.new_transaction{
+  // border: 1px solid #ddd;
+  label{
+    display: block;
+    // float: left;
+    // width: 100px;
+    // text-align: right;
+    // padding-right: 10px;
+  }
+  input{
+  }
+  textarea{
+    height: 100px;
+    width: 100%;
+  }
+  input[type="submit"]{
+    // margin-left: 100px;
   }
 }

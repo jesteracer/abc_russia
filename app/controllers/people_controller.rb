@@ -12,6 +12,6 @@ protected
   end
 
   def permitted_params
-    params.permit(:person => [:about, :accounts, :accused_for, :birth_date, :contacts, :fio, :address, :imprisoned_date, :release_date, :status])
+    params.permit(:person => [:about, :accounts, :accused_for, :birth_date, :contacts, :fio, :address, :imprisoned_date, :release_date, :status, :current_account])
   end
 end

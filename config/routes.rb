@@ -9,5 +9,6 @@ Prz::Application.routes.draw do
   resources :people do
     resources :curations
     resources :photos
+    resources :transactions
   end
 end

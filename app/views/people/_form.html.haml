@@ -2,9 +2,10 @@
   .fields
     .about
       = f.input :fio
-      = f.input :birth_date
+      = f.input :birth_date, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12, order: [:day, :month, :year]
       = f.input :about, input_html: {class: :bigger}
       = f.input :address
+      = f.input :current_account
     .prison_data
       = f.input :status
       = f.input :accused_for, input_html: {class: :smaller}

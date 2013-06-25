@@ -15,6 +15,10 @@
         = link_to person_photos_path(person) do
           %i.icon-picture
           Фотографии
+      - if can? :create, [Curation]
+        %li
+          = link_to new_person_curation_path(person) do
+            %i.icon-user
 
 .person
   .photos
@@ -26,6 +30,30 @@
       .thumbs
         - person.photos.thumbs.each do |photo|
           = image_tag photo.attachment.url(:thumb)
+    - if person.transactions.any?
+      .transactions
+        %h2
+          На счету:
+          - if can? :edit, person
+            = link_to edit_person_path do
+              = person.current_account
+          - else
+            = person.current_account
+        - person.transactions.each do |transaction|
+          = div_for transaction, class: transaction.direction do
+            .amount
+              %i{class: "icon-sign#{transaction.direction}"}
+              %b
+                = transaction.amount
+              %small.time_ago
+                = distance_of_time_in_words_to_now transaction.created_at
+                назад
+            - if can? :edit, person
+              .controls
+                = link_to person_transaction_path(person, transaction), method: :delete do
+                  %i.icon-trash
+            .about_transaction
+              = transaction.about
 
   .about
     .accused_for.notice
@@ -39,11 +67,12 @@
       %h1 Связаться
       = markdown! person.contacts
 
-    - if person.curations.any?
-      .curators
-        %h1 Кураторы
-        - person.curations.each do |curation|
-          = curation.user.email
-
-- if can? :create, [Curation]
-  = link_to "Добавить куратора", new_person_curation_path(person)
+    - if can? :edit, person
+      .transactions
+        %h1 Транзакции
+        = simple_form_for [person, person.transactions.build] do |f|
+          = f.input :amount do
+            = f.text_field :amount
+            = f.select :direction, [['+', 'in'],['-','out']]
+          = f.input :about
+          = f.submit "Добавить"

@@ -9,8 +9,9 @@ ru:
         accused_for: Обвинен в(статьи)
         birth_date: Дата рождения
         status: Статус
-        imprisoned_date: Дата заключения
-        release_date: Дата освобождения
+        imprisoned_date: Даты заключения
+        release_date: освобождения
         address: Адрес места заключения
         contacts: Как связаться c заключенным
+        current_account: Текущий счет(рубли)
         fio: Фио
