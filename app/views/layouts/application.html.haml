@@ -14,8 +14,8 @@
       .left
         %ul
           %li= link_to "Новости", posts_path
-          %li= link_to "Контакты", root_url
-          %li= link_to "О нас", root_url
+          %li= link_to "Контакты", page_path("contacts")
+          %li= link_to "О нас", page_path("about")
       .center
         = link_to root_url do
           = image_tag "logo.jpg"
