@@ -8,39 +8,54 @@
   font-size: 14px;
   line-height: 20px;
 }
-
-.person{
+.people-index{
   @include outer-container;
-  .left_column{
+  .person{
+    text-align: center;
+    img{
+      &:hover{
+        border-color: #C1272D;
+      }
+      width: 100%;
+      border: 1px solid #eee;
+      padding: 4px;
+    }
     @include span-columns(3);
+    @include omega(4n);
   }
-  .right_column{
-    @include span-columns(9);
-    .wrapper{
-      @include outer-container;
-      .about{
-        @include span-columns(5 of 9);
-        // font-size: 13px;
-        .notice{
-          display: block;
-          padding: 10px;
-          border: 1px solid #eee;
-          p{
-            padding: 0;
-            margin: 0;
+}
+.people-show{
+  .person{
+    @include outer-container;
+    .left_column{
+      @include span-columns(3);
+    }
+    .right_column{
+      @include span-columns(9);
+      .wrapper{
+        @include outer-container;
+        .about{
+          @include span-columns(5 of 9);
+          .notice{
+            display: block;
+            padding: 10px;
+            border: 1px solid #eee;
+            p{
+              padding: 0;
+              margin: 0;
+            }
           }
         }
+        .right_small_column{
+          @include span-columns(4 of 9);
+        }
       }
-      .right_small_column{
-        @include span-columns(4 of 9);
+      .person_news{
+        margin-top: 30px;
+        padding-top: 30px;
+        border-top: 4px double #e0e0e0;
       }
     }
-    .person_news{
-      margin-top: 30px;
-      padding-top: 30px;
-      border-top: 4px double #e0e0e0;
-    }
-  }
   .photos{
     .thumbs{
       @include outer-container;
@@ -66,6 +81,8 @@
     border: 1px solid #eee;
   }
 }
+}
+
 
 .transaction{
   clear: both;

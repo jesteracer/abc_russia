@@ -1,6 +1,12 @@
-%h1 Вот список людей
+= content_for :second_header do
+  %h1 Заключенные
 
-- if can? :create, [Person]
-  = link_to "Добавить заключенного", new_person_path
+= content_for :second_navigation do
+  %ul
+    %li
+      - if can? :create, [Person]
+        = link_to "Добавить заключенного", new_person_path
+
+
 - people.each do |person|
   = render person

@@ -58,17 +58,22 @@
   .right_column
     .wrapper
       .about
-        .accused_for.notice
-          = markdown! person.accused_for
+        - if person.accused_for?
+          .accused_for.notice
+            = markdown! person.accused_for
         = markdown! person.about
 
       .right_small_column
-        .accounts
-          %h1 Как помочь
-          = markdown! person.accounts
-        .contacts
-          %h1 Связаться
-          = markdown! person.contacts
+        - if person.accounts?
+          .accounts
+            %h1 Как помочь
+            = markdown! person.accounts
+            %script{:charset => "utf-8", :src => "//yandex.st/share/share.js", :type => "text/javascript"}
+            .yashare-auto-init{"data-yasharel10n" => "ru", "data-yasharequickservices" => "vkontakte,facebook,twitter", "data-yasharetype" => "link"}
+        - if person.contacts?
+          .contacts
+            %h1 Связаться
+            = markdown! person.contacts
 
         - if can? :edit, person
           .transactions
@@ -79,8 +84,9 @@
                 = f.select :direction, [['+', 'in'],['-','out']]
               = f.input :about
               = f.submit "Добавить"
-    .person_news
-      - if person.posts.any?
+
+    - if person.posts.any?
+      .person_news
         .news
           %h1 Новости
           - person.posts.each do |post|

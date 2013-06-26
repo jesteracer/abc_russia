@@ -1,11 +1,16 @@
-%hr
-- if person.photos.any?
-  = image_tag person.photos.first.attachment(:thumb)
-%h2
-  = link_to person.fio, person
-  - if can? :update, person
-    = link_to "edit", edit_person_path(person)
-  - if can? :destroy, person
-    = link_to "x", person, method: :delete
-%p
-  = person.about
+= div_for person do
+  = link_to person do
+    - if person.photos.any?
+      = image_tag person.photos.first.attachment(:medium)
+  %h3
+    = link_to person.fio, person
+    %small
+      - if can? :update, person
+        = link_to edit_person_path(person) do
+          %i.icon-edit
+      - if can? :destroy, person
+        = link_to person, method: :delete do
+          %i.icon-trash
+    %br
+    %small
+      = person.status
