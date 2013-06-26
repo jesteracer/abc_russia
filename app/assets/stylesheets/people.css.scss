@@ -8,20 +8,31 @@
   font-size: 14px;
   line-height: 20px;
 }
-.people-index{
+.people_page{
   @include outer-container;
-  .person{
-    text-align: center;
-    img{
-      &:hover{
-        border-color: #C1272D;
+  .people-index{
+    @include span-columns(8);
+    .person{
+      text-align: center;
+      img{
+        &:hover{
+          border-color: #C1272D;
+        }
+        width: 100%;
+        border: 1px solid #eee;
+        padding: 4px;
       }
-      width: 100%;
-      border: 1px solid #eee;
-      padding: 4px;
+      @include span-columns(4);
+      @include omega(3n);
     }
-    @include span-columns(3);
-    @include omega(4n);
+  }
+  .posts{
+    border: 1px solid #eee;
+    padding: 15px;
+    @include span-columns(4);
+    .post{
+      margin-top: 10px;
+    }
   }
 }
 .people-show{
