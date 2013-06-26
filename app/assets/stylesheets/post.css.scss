@@ -21,7 +21,7 @@ form.new_post,form.edit_post{
   }
 }
 
-.connections{
+.person_caption{
   .name{
     line-height: 24px;
     width: 150px;
@@ -32,5 +32,19 @@ form.new_post,form.edit_post{
   }
   img{
     width: 25px;
+  }
+}
+.posts_page{
+  @include outer-container;
+  .posts{
+    @include span-columns(8);
+  }
+  .people{
+    span.name{
+      width: 200px;
+    }
+    border: 1px solid #ddd;
+    padding: 15px;
+    @include span-columns(4);
   }
 }

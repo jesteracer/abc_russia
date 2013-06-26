@@ -9,4 +9,5 @@
       = check_box_tag "post[person_ids][]", person.id, resource.person_ids.include?(person.id), id: dom_id(person)
       = label_tag dom_id(person), person.fio
   .controls
+    = f.input :created_at
     = f.submit "Сохранить"

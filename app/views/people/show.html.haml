@@ -88,7 +88,8 @@
     - if person.posts.any?
       .person_news
         .news
-          %h1 Новости
+          %h1
+            Новости • #{person.posts.count}
           - person.posts.each do |post|
             = render post
 

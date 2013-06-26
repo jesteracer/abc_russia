@@ -1,7 +1,15 @@
 = content_for :page_title do
-  Новости
+  - if person
+    Новости: #{person.fio}
+  - else
+    Новости
 = content_for :second_header do
-  %h1 Новости
+  %h1
+    - if person
+      Новости: #{person.fio}
+    - else
+      Новости
+
 = content_for :second_navigation do
   %ul
     - if can? :create, Post
@@ -9,9 +17,28 @@
         = link_to new_post_path do
           %i.icon-edit
           Добавить новость
-- posts.each do |post|
-  = div_for post do
-    %h1
-      = link_to post.name, post
-    = markdown! post.short_body
-    = render partial: "connections", locals: {post: post}
+.posts_page
+  .posts
+    - if posts.blank? and person
+      %h1
+        Нет новостей, связанных с этим человеком
+    - posts.each do |post|
+      = div_for post do
+        %h1
+          = link_to post.name, post
+          %small
+            = post.created_at.strftime("%d/%m/%Y")
+        = markdown! post.short_body
+        = render partial: "connections", locals: {post: post}
+  .people
+    %h1 Люди в новостях
+    - Person.all.each do |person|
+      = div_for person, class: :person_caption do
+        - if person.main_photo
+          %span.thumb
+            = image_tag person.main_photo.attachment.url(:thumb)
+        %span.name
+          = link_to person_posts_path(person) do
+            = person.fio
+            •
+            = person.posts.count

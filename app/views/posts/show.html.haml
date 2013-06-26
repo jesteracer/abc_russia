@@ -12,5 +12,7 @@
           Редактировать новость
 %h1
   = post.name
+  %small
+    = post.created_at.strftime("%d/%m/%Y")
 = markdown! post.body
 = render partial: "connections"

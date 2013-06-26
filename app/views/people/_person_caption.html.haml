@@ -1,0 +1,5 @@
+- if person.main_photo
+  %span.thumb
+    = image_tag person.main_photo.attachment.url(:thumb)
+%span.name
+  = link_to person.fio, person

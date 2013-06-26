@@ -11,5 +11,9 @@ Prz::Application.routes.draw do
     resources :photos
     resources :transactions
   end
-  resources :posts
+  resources :posts do
+    collection do
+      get "person/:person_id", action: :index, as: :person
+    end
+  end
 end

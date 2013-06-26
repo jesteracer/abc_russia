@@ -6,3 +6,4 @@ ru:
       post:
         name: Назавние
         body: Новость
+        created_at: Дата публикации
