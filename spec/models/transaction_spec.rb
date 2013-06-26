@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe Transaction do
-  belongs_to(:person)
+  it {should belong_to(:person)}
 end

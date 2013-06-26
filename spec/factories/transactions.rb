@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :transaction do
     person nil
     amount "9.99"
-    direction "MyString"
+    direction "in"
     about "MyText"
   end
 end
