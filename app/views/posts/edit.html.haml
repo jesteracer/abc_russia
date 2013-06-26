@@ -1,0 +1,9 @@
+= content_for :second_header do
+  %h1 Изменить новость
+= content_for :second_navigation do
+  %ul
+    %li
+      = link_to :back do
+        Назад
+        %i.icon-long-arrow-right
+= render "form"

@@ -11,4 +11,5 @@ Prz::Application.routes.draw do
     resources :photos
     resources :transactions
   end
+  resources :posts
 end

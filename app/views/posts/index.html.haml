@@ -1,0 +1,17 @@
+= content_for :page_title do
+  Новости
+= content_for :second_header do
+  %h1 Новости
+= content_for :second_navigation do
+  %ul
+    - if can? :create, Post
+      %li
+        = link_to new_post_path do
+          %i.icon-edit
+          Добавить новость
+- posts.each do |post|
+  = div_for post do
+    %h1
+      = link_to post.name, post
+    = markdown! post.short_body
+    = render partial: "connections", locals: {post: post}

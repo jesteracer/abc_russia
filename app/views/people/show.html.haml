@@ -1,4 +1,5 @@
-
+= content_for :page_title do
+  = person.fio
 = content_for :second_header do
   %h1
     = person.fio
@@ -21,8 +22,8 @@
             %i.icon-user
 
 .person
-  .photos
-    %section#person_photos
+  .left_column
+    .photos#person_photos
       - person.photos.each do |photo|
         - if photo.persisted?
           - if photo.main?
@@ -54,25 +55,35 @@
                   %i.icon-trash
             .about_transaction
               = transaction.about
-
-  .about
-    .accused_for.notice
-      = markdown! person.accused_for
-    = markdown! person.about
   .right_column
-    .accounts
-      %h1 Как помочь
-      = markdown! person.accounts
-    .contacts
-      %h1 Связаться
-      = markdown! person.contacts
+    .wrapper
+      .about
+        .accused_for.notice
+          = markdown! person.accused_for
+        = markdown! person.about
 
-    - if can? :edit, person
-      .transactions
-        %h1 Транзакции
-        = simple_form_for [person, person.transactions.build] do |f|
-          = f.input :amount do
-            = f.text_field :amount
-            = f.select :direction, [['+', 'in'],['-','out']]
-          = f.input :about
-          = f.submit "Добавить"
+      .right_small_column
+        .accounts
+          %h1 Как помочь
+          = markdown! person.accounts
+        .contacts
+          %h1 Связаться
+          = markdown! person.contacts
+
+        - if can? :edit, person
+          .transactions
+            %h1 Транзакции
+            = simple_form_for [person, person.transactions.build] do |f|
+              = f.input :amount do
+                = f.text_field :amount
+                = f.select :direction, [['+', 'in'],['-','out']]
+              = f.input :about
+              = f.submit "Добавить"
+    .person_news
+      - if person.posts.any?
+        .news
+          %h1 Новости
+          - person.posts.each do |post|
+            = render post
+
+

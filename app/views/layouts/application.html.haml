@@ -4,7 +4,8 @@
     %meta{:charset => "utf-8"}/
     %meta{:content => "NOODP", :name => "ROBOTS"}/
     %title
-      = page_title
+      = page_title(:app_name => 'ABC-Russia / АЧК-Россия', :page_title_symbol => :page_title, :separator => " | ")
+
     = stylesheet_link_tag :application, :media => 'all'
     %link{:href => "http://fonts.googleapis.com/css?family=Roboto+Slab:400,700&subset=latin,cyrillic-ext", :rel => "stylesheet", :type => "text/css"}/
     = csrf_meta_tags
@@ -12,7 +13,7 @@
     %div#site_header
       .left
         %ul
-          %li= link_to "Новости", root_url
+          %li= link_to "Новости", posts_path
           %li= link_to "Контакты", root_url
           %li= link_to "О нас", root_url
       .center

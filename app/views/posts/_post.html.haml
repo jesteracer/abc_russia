@@ -1,0 +1,5 @@
+= div_for post do
+  %h1
+    = link_to post.name, post
+  = markdown! post.short_body
+  = render partial: "posts/connections", locals: {post: post}

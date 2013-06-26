@@ -1,0 +1,16 @@
+= content_for :page_title do
+  = post.name
+= content_for :second_header do
+  %h1
+    = link_to "Новости", posts_path
+= content_for :second_navigation do
+  %ul
+    - if can? :edit, post
+      %li
+        = link_to edit_post_path(post) do
+          %i.icon-edit
+          Редактировать новость
+%h1
+  = post.name
+= markdown! post.body
+= render partial: "connections"

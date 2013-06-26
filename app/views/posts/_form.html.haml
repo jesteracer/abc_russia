@@ -1,0 +1,12 @@
+= simple_form_for resource do |f|
+  = f.input :name, label: false
+  = f.input :body, label: false
+
+  .post_connections
+    %h1 Новость связана c:
+    = hidden_field_tag "post[person_ids][]", nil
+    - Person.all.each do |person|
+      = check_box_tag "post[person_ids][]", person.id, resource.person_ids.include?(person.id), id: dom_id(person)
+      = label_tag dom_id(person), person.fio
+  .controls
+    = f.submit "Сохранить"

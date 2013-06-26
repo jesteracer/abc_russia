@@ -1,0 +1,36 @@
+form.new_post,form.edit_post{
+  border: 1px solid #ddd;
+  input[type="text"]{
+    font-size: 20px;
+    width: 100%;
+  }
+  textarea{
+    width: 100%;
+  }
+  .post_connections{
+    padding: 10px;
+    background: #eee;
+    h1{
+      margin: 0;
+      padding: 0;
+    }
+  }
+  .controls{
+    padding: 10px;
+    background: #ccc;
+  }
+}
+
+.connections{
+  .name{
+    line-height: 24px;
+    width: 150px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    word-wrap: normal;
+  }
+  img{
+    width: 25px;
+  }
+}

@@ -1,0 +1,8 @@
+ru:
+  activerecord:
+    models:
+      post: Новость
+    attributes:
+      post:
+        name: Назавние
+        body: Новость
