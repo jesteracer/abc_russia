@@ -8,9 +8,6 @@
       - if can? :update, person
         = link_to edit_person_path(person) do
           %i.icon-edit
-      - if can? :destroy, person
-        = link_to person, method: :delete do
-          %i.icon-trash
     %br
     %small
       = person.status

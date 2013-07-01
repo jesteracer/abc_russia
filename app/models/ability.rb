@@ -17,7 +17,7 @@ class Ability
         transaction.person.curator? user
       end
     else
-      can :read, :all
+      can :read, [Person, Post]
     end
   end
 end

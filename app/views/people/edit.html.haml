@@ -4,13 +4,17 @@
 = content_for :second_navigation do
   %ul
     %li
-      = link_to person_curations_path(person) do
-        %i.icon-user
-        Кураторы
-    %li
       = link_to person_photos_path(person) do
         %i.icon-picture
         Фотографии
+      - if can? :create, [Curation]
+        %li
+          = link_to person_curations_path(person) do
+            %i.icon-user
+      - if can? :destroy, person
+        %li
+          = link_to person, method: :delete do
+            %i.icon-trash
     %li
       = link_to :back do
         %i.icon-long-arrow-right

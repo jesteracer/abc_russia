@@ -23,8 +23,11 @@
         %ul
           - if signed_in?
             %li
-              = current_user.email
-              = link_to "Выход", sign_out_path, :method => :delete
+              = link_to sign_out_path, :method => :delete do
+                %i.icon-signout
+            - if can? :read, [User]
+              %li
+                = link_to "Пользователи", members_path
           - else
             %li
               = link_to "Зарегистрироваться", sign_up_path

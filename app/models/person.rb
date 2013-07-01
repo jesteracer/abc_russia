@@ -1,5 +1,8 @@
 class Person < ActiveRecord::Base
   has_many :curations, dependent: :destroy
+  has_many :users, through: :curations
+  accepts_nested_attributes_for :curations
+
   has_many :photos, dependent: :destroy
   has_many :transactions, dependent: :destroy
   has_many :connections, dependent: :destroy
@@ -16,4 +19,5 @@ class Person < ActiveRecord::Base
       nil
     end
   end
+
 end

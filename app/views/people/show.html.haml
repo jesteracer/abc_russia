@@ -18,8 +18,12 @@
           Фотографии
       - if can? :create, [Curation]
         %li
-          = link_to new_person_curation_path(person) do
+          = link_to person_curations_path(person) do
             %i.icon-user
+      - if can? :destroy, person
+        %li
+          = link_to person, method: :delete do
+            %i.icon-trash
 
 .person
   .left_column
