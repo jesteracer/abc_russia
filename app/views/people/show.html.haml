@@ -29,9 +29,8 @@
   .left_column
     .photos#person_photos
       - person.photos.each do |photo|
-        - if photo.persisted?
-          - if photo.main?
-            = image_tag photo.attachment.url(:medium), class: :main
+        - if photo.main?
+          = image_tag photo.attachment.url(:medium), class: :main
       .thumbs
         - person.photos.thumbs.each do |photo|
           = image_tag photo.attachment.url(:thumb)

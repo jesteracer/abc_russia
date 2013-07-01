@@ -60,9 +60,9 @@ group :test do
   gem 'timecop'
 end
 
-group :staging, :production do
-  gem 'newrelic_rpm'
-end
+# group :staging, :production do
+#   gem 'newrelic_rpm'
+# end
 
 # Use unicorn as the app server
 gem 'unicorn'

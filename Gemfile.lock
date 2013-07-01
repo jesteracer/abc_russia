@@ -152,7 +152,6 @@ GEM
     net-ssh (2.6.7)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    newrelic_rpm (3.6.4.122)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     paperclip (3.4.2)
@@ -279,7 +278,6 @@ DEPENDENCIES
   jquery-rails
   launchy
   neat
-  newrelic_rpm
   paperclip (~> 3.0)
   pg
   rabl
