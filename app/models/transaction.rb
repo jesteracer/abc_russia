@@ -13,4 +13,6 @@ class Transaction < ActiveRecord::Base
 
   after_save :calculate_curren_account
   after_destroy :calculate_curren_account
+
+  default_scope order("created_at DESC")
 end
