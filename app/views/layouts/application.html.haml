@@ -1,15 +1,16 @@
 !!!
 %html
   %head
-    %meta{:charset => "utf-8"}/
-    %meta{:content => "NOODP", :name => "ROBOTS"}/
+    %meta{charset: "utf-8"}/
+    %meta{name: "description", content: content_for(:description)}
+    %meta{name: "keywords", content: content_for(:keywords)}
     %title
       = page_title(:app_name => 'ABC-Russia / АЧК-Россия', :page_title_symbol => :page_title, :separator => " | ")
 
     = stylesheet_link_tag :application, :media => 'all'
-    %link{:href => "http://fonts.googleapis.com/css?family=Roboto+Slab:400,700&subset=latin,cyrillic-ext", :rel => "stylesheet", :type => "text/css"}/
+    %link{href: "http://fonts.googleapis.com/css?family=Roboto+Slab:400,700&subset=latin,cyrillic-ext", rel: "stylesheet", type: "text/css"}/
     = csrf_meta_tags
-  %body{:class => body_class}
+  %body{class: body_class}
     %div#site_header
       .left
         %ul

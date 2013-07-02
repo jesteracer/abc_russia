@@ -1,5 +1,8 @@
 = content_for :page_title do
   = person.fio
+= content_for :description do
+  = person.fio
+  = person.status
 = content_for :second_header do
   %h1
     = person.fio
@@ -93,7 +96,8 @@
         .news
           %h1
             Новости • #{person.posts.count}
-          - person.posts.each do |post|
+          - person.last_posts(params[:page]).each do |post|
             = render post
+          = paginate person.last_posts
 
 
