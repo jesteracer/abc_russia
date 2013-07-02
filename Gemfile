@@ -9,6 +9,7 @@ gem 'clearance', '1.0.0.rc7'
 gem 'bourbon'
 gem 'neat'
 gem 'font-awesome-rails'
+gem 'kaminari'
 #gem 'inherited_resources'
 # Gemfile
 gem 'rabl'

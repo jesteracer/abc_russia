@@ -16,7 +16,7 @@ protected
       Post.on_person(params[:person_id])
     else
       super
-    end
+    end.by_date.page params[:page]
   end
 
   def person

@@ -30,6 +30,8 @@
             = post.created_at.strftime("%d/%m/%Y")
         = markdown! post.short_body
         = render partial: "connections", locals: {post: post}
+    %h4
+      = paginate posts
   .people
     %h1 Люди в новостях
     - Person.all.each do |person|
