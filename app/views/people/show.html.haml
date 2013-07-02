@@ -98,6 +98,7 @@
             Новости • #{person.posts.count}
           - person.last_posts(params[:page]).each do |post|
             = render post
-          = paginate person.last_posts
+          %h4
+            = paginate person.last_posts
 
 

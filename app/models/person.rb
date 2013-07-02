@@ -20,4 +20,8 @@ class Person < ActiveRecord::Base
     end
   end
 
+  def last_posts(page = nil)
+    @last_posts ||= self.posts.by_date.page(page.to_i)
+  end
+
 end
