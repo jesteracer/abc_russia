@@ -9,6 +9,11 @@
       Новости: #{person.fio}
     - else
       Новости
+    \/
+    %small
+      = link_to posts_path(:rss) do
+        Подписаться
+        %i.icon-rss
 
 = content_for :second_navigation do
   %ul

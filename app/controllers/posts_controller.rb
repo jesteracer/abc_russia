@@ -1,4 +1,7 @@
 class PostsController < InheritedResources::Base
+  load_and_authorize_resource
+  respond_to :html
+  respond_to :rss, only: :index
   helper_method :post, :posts, :person
 
   def post
