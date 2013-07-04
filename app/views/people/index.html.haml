@@ -11,18 +11,24 @@
   .people-index
     - people.each do |person|
       = render person
-  .posts
-    %h1 Новости
-    - Post.all.last(5).each do |post|
-      = div_for post do
-        %h4
-          %small
-            = post.created_at.strftime("%d/%m/%Y")
-          = link_to post.name, post
-        - if post.people.any?
-          %small
-            %i.icon-tag
-            = post.people.map{|p| link_to p.fio, p}.join(", ").html_safe
-    %br
-    %h3
-      = link_to "Все новости...", posts_path
+  .aside
+    .filter
+      - Person.statuses_count.each do |status, count|
+        %h3
+          = link_to people_path(status: status) do
+            = "#{status} • #{count}"
+    .posts
+      %h1 Новости
+      - Post.all.last(5).each do |post|
+        = div_for post do
+          %h4
+            %small
+              = post.created_at.strftime("%d/%m/%Y")
+            = link_to post.name, post
+          - if post.people.any?
+            %small
+              %i.icon-tag
+              = post.people.map{|p| link_to p.fio, p}.join(", ").html_safe
+      %br
+      %h3
+        = link_to "Все новости...", posts_path

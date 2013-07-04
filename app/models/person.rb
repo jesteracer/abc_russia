@@ -24,4 +24,8 @@ class Person < ActiveRecord::Base
     @last_posts ||= self.posts.by_date.page(page.to_i)
   end
 
+  def self.statuses_count
+    group(:status).count
+  end
+
 end

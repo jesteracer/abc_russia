@@ -26,12 +26,24 @@
       @include omega(3n);
     }
   }
-  .posts{
-    border: 1px solid #eee;
-    padding: 15px;
+  .aside{
     @include span-columns(4);
-    .post{
-      margin-top: 10px;
+    .posts{
+      border: 1px solid #eee;
+      padding: 15px;
+      .post{
+        margin-top: 10px;
+      }
+    }
+    .filter{
+      margin-bottom: 15px;
+      padding: 15px;
+      border: 1px solid #eee;
+      ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
     }
   }
 }

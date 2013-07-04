@@ -3,6 +3,13 @@ class PeopleController < InheritedResources::Base
   helper_method :person, :people
 
 protected
+  def collection
+    if params[:status]
+      @people = Person.where(status: params[:status])
+    else
+      super
+    end
+  end
   def person
     resource
   end
