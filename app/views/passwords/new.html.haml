@@ -1,0 +1,11 @@
+#clearance.password-reset
+  = form_for :password, url: passwords_path, html: {class: :sessions_form} do |form|
+    %h1
+      = t '.title'
+    .hint
+      = t '.description'
+    .field
+      = form.label :email
+      = form.text_field :email, type: 'email'
+    .field
+      = form.submit

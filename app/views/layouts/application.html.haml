@@ -31,9 +31,9 @@
                 = link_to "Пользователи", members_path
           - else
             %li
-              = link_to "Зарегистрироваться", sign_up_path
+              = link_to t('.sign_up'), sign_up_path
               или
-              = link_to "Войти", sign_in_path
+              = link_to t('.sign_in'), sign_in_path
 
     - if content_for? :second_header
       .second_header

@@ -1,0 +1,13 @@
+= form_for :session, url: session_path, html: {class: :sessions_form} do |form|
+  %h1
+    = t '.title'
+  .field
+    = form.label :email, t('.email')
+    = form.text_field :email, type: 'email'
+  .field
+    = form.label :password, t('.password')
+    = form.password_field :password
+  .field
+    = form.submit
+    %span.other-links
+      = link_to t('.forgot_password'), new_password_path

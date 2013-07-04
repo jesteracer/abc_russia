@@ -1,0 +1,42 @@
+$left_margin: 120px;
+form.sessions_form{
+  @include span-columns(6);
+  @include shift(3);
+  border: 1px solid #eee;
+  padding: 15px;
+
+  .field{
+    padding-top: 10px;
+  }
+  h1{
+    margin-left: $left_margin;
+    small{
+      font-size: .6em;
+    }
+  }
+  .hint{
+    padding-left: $left_margin;
+  }
+  label{
+    display: block;
+    float: left;
+    width: $left_margin;
+    padding-right: 10px;
+    text-align: right;
+    padding-top: 5px;
+  }
+  input[type="password"], input[type="email"]{
+    font-size: 1.2em;
+    width: 240px;
+  }
+  input[type="submit"]{
+    margin-left: $left_margin;
+    font-size: 16px;
+  }
+  .other-links{
+    a{
+      display: inline-block;
+      padding: 5px;
+    }
+  }
+}

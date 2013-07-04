@@ -1,0 +1,7 @@
+#clearance.sign-up
+  = form_for @user, html: {class: :sessions_form} do |form|
+    %h1
+      = t ".sign_up"
+    = render partial: '/users/form', object: form
+    .field
+      = form.submit

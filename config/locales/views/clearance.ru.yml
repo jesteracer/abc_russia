@@ -1,0 +1,76 @@
+ru:
+  clearance_mailer:
+    change_password:
+      opening:
+        'Someone, hopefully you, requested we send you a link to change your
+         password:'
+      closing:
+        "If you didn't request this, ignore this email. Your password has not
+         been changed."
+  flashes:
+    failure_when_forbidden:
+      'Please double check the URL or try submitting the form again.'
+    failure_after_update:
+      "Password can't be blank."
+    failure_after_create:
+      'Bad email or password. Are you trying to register a new account?
+       <a href="%{sign_up_path}">Sign up</a>.'
+  helpers:
+    submit:
+      password:
+        submit:
+          'Сбросить пароль'
+      password_reset:
+        submit:
+          'Сохранить этот пароль'
+      session:
+        submit:
+          'Войти'
+      user:
+        create:
+          'Зарегистрироваться'
+    label:
+      password:
+        email:
+          'Email'
+      password_reset:
+        password:
+          'Выберите пароль'
+  layouts:
+    application:
+      sign_in:
+        'Войти'
+      sign_out:
+        'Выйти'
+      sign_up:
+        'Зарегистрироваться'
+  passwords:
+    create:
+      description:
+        'Вы получите письмо с инструкциями по смене пароля в течении нескольких минут.'
+    edit:
+      description:
+        'Ваш старый пароль сброшен. Введите новый ниже.'
+      title:
+        'Измените ваш пароль'
+    new:
+      description:
+        'Введите свой email, что бы сбросить пароль.'
+      title:
+        'Изменить пароль'
+  sessions:
+    form:
+      title:
+        'Войти'
+      email: "Email"
+      password: "Пароль"
+      forgot_password:
+        'Забыли пароль?'
+      sign_up:
+        'Регистрация'
+  users:
+    new:
+      sign_in:
+        'Войти'
+      sign_up:
+        'Регистрация'
