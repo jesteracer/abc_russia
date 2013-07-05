@@ -28,13 +28,8 @@
       %h1
         Нет новостей, связанных с этим человеком
     - posts.each do |post|
-      = div_for post do
-        %h1
-          = link_to post.name, post
-          %small
-            = post.created_at.strftime("%d/%m/%Y")
-        = markdown! post.short_body
-        = render partial: "connections", locals: {post: post}
+      = render partial: "posts/post", locals: {post: post, show_short_body: true}
+
     %h4
       = paginate posts
   .people

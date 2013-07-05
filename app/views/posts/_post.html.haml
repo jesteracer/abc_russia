@@ -1,5 +1,11 @@
 = div_for post do
   %h1
     = link_to post.name, post
+    %small
+      = post.created_at.strftime("%d.%m.%Y")
+- if show_short_body
   = markdown! post.short_body
-  = render partial: "posts/connections", locals: {post: post}
+- else
+  = markdown! post.body
+
+= render partial: "posts/connections", locals: {post: post}

@@ -10,9 +10,5 @@
         = link_to edit_post_path(post) do
           %i.icon-edit
           Редактировать новость
-%h1
-  = post.name
-  %small
-    = post.created_at.strftime("%d/%m/%Y")
-= markdown! post.body
-= render partial: "connections"
+
+= render partial: "posts/post", locals: {post: post, show_short_body: false}

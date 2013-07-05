@@ -5,7 +5,9 @@
   %ul
     %li
       - if can? :create, [Person]
-        = link_to "Добавить заключенного", new_person_path
+        = link_to new_person_path do
+          %i.icon-male
+          Добавить заключенного
 
 .people_page
   .people-index
@@ -23,7 +25,7 @@
         = div_for post do
           %h4
             %small
-              = post.created_at.strftime("%d/%m/%Y")
+              = post.created_at.strftime("%d.%m.%Y")
             = link_to post.name, post
           - if post.people.any?
             %small

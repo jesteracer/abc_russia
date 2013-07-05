@@ -97,7 +97,7 @@
           %h1
             Новости • #{person.posts.count}
           - person.last_posts(params[:page]).each do |post|
-            = render post
+            = render partial: "posts/post", locals: {post: post, show_short_body: true}
           %h4
             = paginate person.last_posts
 
