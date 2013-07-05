@@ -8,6 +8,8 @@ class Person < ActiveRecord::Base
   has_many :connections, dependent: :destroy
   has_many :posts, through: :connections
 
+  validates :fio, presence: true
+
   def curator?(user)
     curations.pluck(:user_id).include?(user.id)
   end

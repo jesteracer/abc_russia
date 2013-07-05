@@ -7,10 +7,9 @@ class Photo < ActiveRecord::Base
   default_scope order("main DESC")
   scope :thumbs, where(main: false)
   scope :main, where(main: true)
+
   before_save do |photo|
-    if photo.main?
-      self.person.photos.main.update_all(main: false)
-    end
+    self.person.photos.main.update_all(main: false) if photo.main?
   end
 end
 

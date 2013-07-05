@@ -2,10 +2,6 @@ class MembersController < InheritedResources::Base
   defaults :resource_class => User
   load_and_authorize_resource :user, :parent => false
 
-
-  # load_and_authorize_resource :except => [:create]
-
-
   helper_method :user, :users
 
   def admin

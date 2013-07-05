@@ -4,6 +4,9 @@ class Post < ActiveRecord::Base
   has_many :people, through: :connections
   accepts_nested_attributes_for :connections
 
+  validates :name, presence: true
+  validates :body, presence: true
+
   def self.on_person(id)
     self.includes(:connections).where("connections.person_id" => id)
   end
