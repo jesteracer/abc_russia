@@ -59,6 +59,9 @@
         @include outer-container;
         .about{
           @include span-columns(5 of 9);
+          img{
+            max-width: 100%;
+          }
           .notice{
             display: block;
             padding: 10px;

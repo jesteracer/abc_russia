@@ -1,5 +1,6 @@
 = simple_form_for resource do |f|
-  = f.input :name, label: false
+  = f.input :name, label: false, placeholder: "Название новости..."
+  = render partial: "shared/markdown_link"
   = f.input :body, label: false
 
   .post_connections

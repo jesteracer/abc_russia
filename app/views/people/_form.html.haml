@@ -3,6 +3,8 @@
     .about
       = f.input :fio
       = f.input :birth_date, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12, order: [:day, :month, :year]
+
+      = render partial: "shared/markdown_link"
       = f.input :about, input_html: {class: :bigger}
       = f.input :address
       = f.input :current_account

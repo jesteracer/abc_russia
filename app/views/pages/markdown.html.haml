@@ -1,0 +1,53 @@
+= content_for :page_title do
+  Markdown
+= content_for :second_header do
+  %h1 Markdown
+.page_wrapper
+  .col-6
+    %h1 Форматирование текста
+    %pre
+      :preserve
+        <h1># Это - заголовок</h1>
+        <h2>## Это - заголовок</h2>
+        <h3>### Это - заголовок</h6>
+    %pre
+      :preserve
+        *<i>Этот текст будет курсивом</i>*
+        _<i>И это текст будет курсивом</i>_
+
+        **<b>Этот текст будет жирным</b>**
+        __<b>И этот текст будет жирным</b>__
+
+        *<i>Вы **<b>можете</b>** комбинировать их</i>*
+  .col-6
+    %h1 Списки
+    %h3 Список с точками
+    %pre
+      :preserve
+        * Item 1
+        * Item 2
+          * Item 2a
+          * Item 2b
+    %h3 Список с цифрами
+    %pre
+      :preserve
+        1. Item 1
+        2. Item 2
+        3. Item 3
+           * Item 3a
+           * Item 3b
+    %h1 Разное
+    %h3 Картинки
+    %pre
+      :preserve
+        Формат: ![Alt Text](url)
+        Alt Text - подпись картинки
+        (нужна для поисковиков и людей, с отключенными изображениями)
+        url - полный адрес до изображения.
+    %h3 Ссылки
+    %pre
+      :preserve
+        Что бы добавить ссылку просто напишите ее адрес.
+        В форме пишите: http://github.com &rarr; <a href="http://github.com">http://github.com</a>
+
+        Для ссылки формата <a href="http://github.com">GitHub</a>, в форме - [GitHub](http://github.com)
